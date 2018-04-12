@@ -16,15 +16,15 @@ use PHPUnit\Framework\TestCase;
 class NameFilterTest extends TestCase
 {
 
-    private  $hotel;
+    private $hotel;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $this->hotel = new Hotel();
         $this->hotel->setName('Rotana Hotel');
     }
 
-    public function  testNameFilter() : void
+    public function testNameFilter(): void
     {
         $nameFilter = new NameFilter();
         $this->assertTrue($nameFilter->apply($this->hotel, 'Rotana Hotel'), 'Whole Word');

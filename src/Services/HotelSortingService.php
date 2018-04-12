@@ -19,7 +19,7 @@ use App\Services\Sorters\PriceSorter;
  */
 class HotelSortingService
 {
-    protected $sorterClasses = ['name' => NameSorter::class, 'price'=> PriceSorter::class];
+    protected $sorterClasses = ['name' => NameSorter::class, 'price' => PriceSorter::class];
     protected $supportedSortingKeys = ['name', 'price'];
 
 
@@ -45,7 +45,7 @@ class HotelSortingService
      */
     private function validateSortingKey(string $sortingKey): void
     {
-        if(empty($sortingKey)) {
+        if (empty($sortingKey)) {
             throw new \Exception('sorting key should not be empty.');
         }
         if (!in_array($sortingKey, $this->supportedSortingKeys)) {

@@ -23,7 +23,7 @@ class HotelApiRequestFactory
      * @return \Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function make(Client $client) : ResponseInterface
+    public function make(Client $client): ResponseInterface
     {
         $remoteEndpoint = 'api.myjson.com/bins/tl0bp';
         return $client->request('GET', $remoteEndpoint);

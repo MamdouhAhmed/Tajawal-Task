@@ -15,20 +15,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SearchHelperTest extends TestCase
 {
-    public function testAddValidFilters() : void
+    public function testAddValidFilters(): void
     {
         $request = new Request();
-        $request->query->add(['name'=>'rot','city'=>'dub']);
+        $request->query->add(['name' => 'rot', 'city' => 'dub']);
         $searchHelper = new SearchHelper($request);
         $filters = $searchHelper->getFilters();
         $filterClasses = $searchHelper->getFilterClasses();
         $this->assertEquals(2, sizeof($filters));
         $this->assertEquals(2, sizeof($filterClasses));
     }
-    public function testAddValidAndInvalidFilters() : void
+
+    public function testAddValidAndInvalidFilters(): void
     {
         $request = new Request();
-        $request->query->add(['name'=>'rot','city'=>'dub', 'notAfilter' => 'doesntmatter']);
+        $request->query->add(['name' => 'rot', 'city' => 'dub', 'notAfilter' => 'doesntmatter']);
         $searchHelper = new SearchHelper($request);
         $filters = $searchHelper->getFilters();
         $filterClasses = $searchHelper->getFilterClasses();

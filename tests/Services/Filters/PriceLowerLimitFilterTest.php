@@ -16,21 +16,21 @@ use PHPUnit\Framework\TestCase;
 class PriceLowerLimitFilterTest extends TestCase
 {
 
-    private  $hotel;
+    private $hotel;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $this->hotel = new Hotel();
         $this->hotel->setPrice(80);
     }
 
-    public function  testNameFilter() : void
+    public function testNameFilter(): void
     {
         $priceLowerLimitFilter = new PriceLowerLimitFilter();
 
-        $this->assertFalse($priceLowerLimitFilter->apply($this->hotel,'90'));
-        $this->assertTrue($priceLowerLimitFilter->apply($this->hotel,'80'));
-        $this->assertTrue($priceLowerLimitFilter->apply($this->hotel,'70'));
+        $this->assertFalse($priceLowerLimitFilter->apply($this->hotel, '90'));
+        $this->assertTrue($priceLowerLimitFilter->apply($this->hotel, '80'));
+        $this->assertTrue($priceLowerLimitFilter->apply($this->hotel, '70'));
 
     }
 

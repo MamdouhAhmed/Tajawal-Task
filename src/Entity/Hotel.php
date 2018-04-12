@@ -17,12 +17,12 @@ use Tebru\Gson\Annotation\Type;
  */
 class Hotel
 {
-    private $name ;
+    private $name;
     /**
      * @var float
      * @Type("float")
      */
-    private $price ;
+    private $price;
     private $city;
     /**
      * @var array
@@ -33,7 +33,7 @@ class Hotel
     /**
      * @return string
      */
-    public function getName() :string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -49,7 +49,7 @@ class Hotel
     /**
      * @return mixed
      */
-    public function getPrice() : float
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -65,7 +65,7 @@ class Hotel
     /**
      * @return string
      */
-    public function getCity() : string
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -93,11 +93,6 @@ class Hotel
     {
         $this->availability = $availability;
     }
-
-
-
-
-
 
 
 }

@@ -16,7 +16,8 @@ use PHPUnit\Framework\TestCase;
 class PriceSorterTest extends TestCase
 {
     private $hotels;
-    public function setUp() : void
+
+    public function setUp(): void
     {
         $hotel1 = new Hotel();
         $hotel1->setName('a');
@@ -30,13 +31,13 @@ class PriceSorterTest extends TestCase
         $hotel3->setName('c');
         $hotel3->setPrice(75);
 
-        $this->hotels =[$hotel2, $hotel1, $hotel3];
+        $this->hotels = [$hotel2, $hotel1, $hotel3];
     }
 
-    public function testPriceSorter() : void
+    public function testPriceSorter(): void
     {
         $priceSorter = new PriceSorter();
-        $this->hotels= $priceSorter->sort($this->hotels);
+        $this->hotels = $priceSorter->sort($this->hotels);
         $this->assertEquals(3, sizeof($this->hotels));
         $this->assertEquals(70, $this->hotels[0]->getPrice());
         $this->assertEquals(80, $this->hotels[2]->getPrice());

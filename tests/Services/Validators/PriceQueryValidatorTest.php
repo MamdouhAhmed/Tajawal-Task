@@ -15,13 +15,14 @@ use PHPUnit\Framework\TestCase;
 
 class PriceQueryValidatorTest extends TestCase
 {
-    public function testValidateStringThatIsNotaNumberThrowsException() : void
+    public function testValidateStringThatIsNotaNumberThrowsException(): void
     {
         $this->expectException(ValidationException::class);
 
         (new PriceQueryValidator())->validate("NaN");
     }
-    public function testValidateEmptyStringThrowsException() : void
+
+    public function testValidateEmptyStringThrowsException(): void
     {
         $this->expectException(ValidationException::class);
 

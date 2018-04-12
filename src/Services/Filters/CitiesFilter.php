@@ -21,27 +21,26 @@ class CitiesFilter extends AbstractHotelArrayFilter
 
     /**
      * @param Hotel $hotel
-     * @param array $cityNames
-     * @return bool
-     */
-    protected function applyOnArray(Hotel $hotel, array $cityNames): bool
-    {
-        foreach ($cityNames as $name){
-            if(StringHelper::contains($hotel->getCity(), $name))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * @param Hotel $hotel
      * @param string $constraint
      * @return bool
      */
     public function apply(Hotel $hotel, string $constraint): bool
     {
         return $this->applyOnArray($hotel, StringHelper::splitByComma($constraint));
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @param array $cityNames
+     * @return bool
+     */
+    protected function applyOnArray(Hotel $hotel, array $cityNames): bool
+    {
+        foreach ($cityNames as $name) {
+            if (StringHelper::contains($hotel->getCity(), $name)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

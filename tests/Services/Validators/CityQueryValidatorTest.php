@@ -15,13 +15,13 @@ use PHPUnit\Framework\TestCase;
 
 class CityQueryValidatorTest extends TestCase
 {
-    public function testValidateEmptyStringThrowsException() : void
+    public function testValidateEmptyStringThrowsException(): void
     {
         $this->expectException(ValidationException::class);
         (new CityQueryValidator())->validate("");
     }
 
-    public function testValidateStringWithWrongFormatThrowsException() : void
+    public function testValidateStringWithWrongFormatThrowsException(): void
     {
         $this->expectException(ValidationException::class);
         (new CityQueryValidator())->validate("d,,d");

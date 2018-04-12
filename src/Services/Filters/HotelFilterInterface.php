@@ -17,5 +17,5 @@ use App\Entity\Hotel;
  */
 interface HotelFilterInterface
 {
-    public function apply(Hotel $hotel, string $constraint) : bool;
+    public function apply(Hotel $hotel, string $constraint): bool;
 }

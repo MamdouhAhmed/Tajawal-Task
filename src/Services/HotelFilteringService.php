@@ -25,32 +25,27 @@ class HotelFilteringService
      * @param SearchHelper $searchHelper
      * @return Hotels
      */
-    public function filterHotels(Hotels $hotels , SearchHelper $searchHelper): Hotels
+    public function filterHotels(Hotels $hotels, SearchHelper $searchHelper): Hotels
     {
         $filters = $searchHelper->getFilters();
 
         $filterClasses = $searchHelper->getFilterClasses();
 
-        $hotels->setHotels( array_filter($hotels->getHotels(), function (Hotel $hotel) use (& $filterClasses ,& $filters){
+        $hotels->setHotels(array_filter($hotels->getHotels(),
+            function (Hotel $hotel) use (& $filterClasses, & $filters) {
 
-           foreach ($filters as $filter => $constraint){
-               if(!(new $filterClasses[$filter])->apply($hotel, $constraint)){
-                   return false;
-               }
-           }
+                foreach ($filters as $filter => $constraint) {
+                    if (!(new $filterClasses[$filter])->apply($hotel, $constraint)) {
+                        return false;
+                    }
+                }
 
-           return true;
-        }));
+                return true;
+            }));
 
 
         return $hotels;
     }
-
-
-
-
-
-
 
 
 }

@@ -29,25 +29,25 @@ class HotelController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request) : Response
+    public function index(Request $request): Response
     {
         try {
-            
+
             $searchHelper = new SearchHelper($request);
 
             (new SearchParametersValidator())->validate($searchHelper->getFilters());
 
-            $sortingKey = $request->query->get('sort_by')??'price';
-            
-            $hotels = (new HotelGetter()) -> get((new HotelApiRequestFactory())->make((new Client())));
+            $sortingKey = $request->query->get('sort_by') ?? 'price';
+
+            $hotels = (new HotelGetter())->get((new HotelApiRequestFactory())->make((new Client())));
 
             $hotels = (new HotelFilteringService())->filterHotels($hotels, $searchHelper);
 
-            $hotels = (new HotelSortingService()) ->sortHotels($hotels, $sortingKey);
+            $hotels = (new HotelSortingService())->sortHotels($hotels, $sortingKey);
 
-            return new Response(Gson::builder()->build()->toJson($hotels), 200, array('content-type'=>'application/json'));
-        }
-        catch (ValidationException $e){
+            return new Response(Gson::builder()->build()->toJson($hotels), 200,
+                array('content-type' => 'application/json'));
+        } catch (ValidationException $e) {
             return new Response($e->getMessage(), Response::HTTP_UNPROCESSABLE_ENTITY);
         } catch (Exception $e) {
             return new Response($e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);

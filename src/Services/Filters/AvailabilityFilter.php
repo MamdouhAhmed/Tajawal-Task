@@ -21,28 +21,6 @@ class AvailabilityFilter extends AbstractHotelArrayFilter
 {
     private const FROM_INDEX = 0;
     private const TO_INDEX = 1;
-    /**
-     * @param Hotel $hotel
-     * @param array $constraints
-     * @return bool
-     */
-    protected function applyOnArray(Hotel $hotel, array $constraints): bool
-    {
-
-        foreach ($constraints as $rangeArray)
-        {
-            foreach ($hotel->getAvailability() as $availability)
-            {
-                $from = (new DateTime($availability->getFrom()))->getTimestamp();
-                $to = (new DateTime($availability->getTo()))->getTimestamp();
-                if($from <= $rangeArray[self::FROM_INDEX] && $to >= $rangeArray[self::TO_INDEX])
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     /**
      * @param Hotel $hotel
@@ -53,9 +31,29 @@ class AvailabilityFilter extends AbstractHotelArrayFilter
     {
         $rangeStrings = StringHelper::splitByComma($constraint);
         $rangeArrays = [];
-        foreach ($rangeStrings as $range){
+        foreach ($rangeStrings as $range) {
             $rangeArrays[] = StringHelper::convertDateRangeToArray($range);
         }
         return $this->applyOnArray($hotel, $rangeArrays);
+    }
+
+    /**
+     * @param Hotel $hotel
+     * @param array $constraints
+     * @return bool
+     */
+    protected function applyOnArray(Hotel $hotel, array $constraints): bool
+    {
+
+        foreach ($constraints as $rangeArray) {
+            foreach ($hotel->getAvailability() as $availability) {
+                $from = (new DateTime($availability->getFrom()))->getTimestamp();
+                $to = (new DateTime($availability->getTo()))->getTimestamp();
+                if ($from <= $rangeArray[self::FROM_INDEX] && $to >= $rangeArray[self::TO_INDEX]) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

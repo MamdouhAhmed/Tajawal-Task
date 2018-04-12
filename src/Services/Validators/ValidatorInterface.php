@@ -14,5 +14,5 @@ namespace App\Services\Validators;
  */
 interface ValidatorInterface
 {
-    function validate(string $value) : void;
+    function validate(string $value): void;
 }

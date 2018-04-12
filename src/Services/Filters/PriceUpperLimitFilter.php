@@ -22,9 +22,9 @@ class PriceUpperLimitFilter implements HotelFilterInterface
      * @param string $constraint
      * @return bool
      */
-    public function apply(Hotel $hotel, string  $constraint): bool
+    public function apply(Hotel $hotel, string $constraint): bool
     {
-        $constraint = (double) $constraint;
+        $constraint = (double)$constraint;
         return $hotel->getPrice() <= $constraint;
     }
 }

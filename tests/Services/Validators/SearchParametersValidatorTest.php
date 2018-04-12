@@ -15,11 +15,11 @@ use PHPUnit\Framework\TestCase;
 
 class SearchParametersValidatorTest extends TestCase
 {
-    public function testValidateWithEmptyQueryValueThrowsException() : void
+    public function testValidateWithEmptyQueryValueThrowsException(): void
     {
         $this->expectException(ValidationException::class);
 
-        (new SearchParametersValidator())->validate(array('name'=>''));
+        (new SearchParametersValidator())->validate(array('name' => ''));
     }
 
 }

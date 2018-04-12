@@ -24,8 +24,8 @@ class HotelGetter
      * @param ResponseInterface $response
      * @return Hotels
      */
-    public function get(ResponseInterface $response) : Hotels
+    public function get(ResponseInterface $response): Hotels
     {
-        return Gson::builder()->build()->fromJson($response->getBody(),Hotels::class);
+        return Gson::builder()->build()->fromJson($response->getBody(), Hotels::class);
     }
 }

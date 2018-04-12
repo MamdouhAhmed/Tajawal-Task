@@ -21,7 +21,7 @@ class HotelFilteringServiceTest extends TestCase
 {
     private $hotels;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $hotel1 = new Hotel();
         $hotel1->setName('a');
@@ -73,7 +73,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'k']);
+        $request->query->add(['name' => 'k']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 
@@ -85,7 +85,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'a', 'city' => 'c']);
+        $request->query->add(['name' => 'a', 'city' => 'c']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 
@@ -97,7 +97,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'a']);
+        $request->query->add(['name' => 'a']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 
@@ -109,7 +109,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'a,b']);
+        $request->query->add(['name' => 'a,b']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 
@@ -121,7 +121,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'a', 'city'=>'d,e']);
+        $request->query->add(['name' => 'a', 'city' => 'd,e']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 
@@ -133,7 +133,7 @@ class HotelFilteringServiceTest extends TestCase
         $hotelFilteringService = new HotelFilteringService();
 
         $request = new Request();
-        $request->query->add(['name'=>'a,b', 'city'=>'d,e']);
+        $request->query->add(['name' => 'a,b', 'city' => 'd,e']);
 
         $this->hotels = $hotelFilteringService->filterHotels($this->hotels, new SearchHelper($request));
 

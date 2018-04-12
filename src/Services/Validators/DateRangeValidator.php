@@ -22,10 +22,9 @@ class DateRangeValidator implements ValidatorInterface
      * @param $dateRange
      * @throws ValidationException
      */
-    public function validate(string $dateRange) : void
+    public function validate(string $dateRange): void
     {
-        if( preg_match("/^\d{2}\-\d{2}\-\d{4}:\d{2}\-\d{2}\-\d{4}$/",$dateRange) == FALSE)
-        {
+        if (preg_match("/^\d{2}\-\d{2}\-\d{4}:\d{2}\-\d{2}\-\d{4}$/", $dateRange) == false) {
             throw new ValidationException('Date range should match dd-mm-yyyy:dd-mm-yyyy format.');
         }
     }

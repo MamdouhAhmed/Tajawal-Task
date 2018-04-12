@@ -24,16 +24,14 @@ class AvailabilityQueryValidator implements ValidatorInterface
      * @return void
      * @throws ValidationException
      */
-    function validate(string $query) : void
+    function validate(string $query): void
     {
-        if(empty($query))
-        {
+        if (empty($query)) {
             throw new ValidationException('Availability query shouldn\'t be empty');
         }
         $rangeStrings = StringHelper::splitByComma($query);
         $dateRangeValidator = new DateRangeValidator();
-        foreach ($rangeStrings as $range)
-        {
+        foreach ($rangeStrings as $range) {
             $dateRangeValidator->validate($range);
         }
     }

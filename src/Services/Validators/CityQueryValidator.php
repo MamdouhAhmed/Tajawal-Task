@@ -23,13 +23,11 @@ class CityQueryValidator implements ValidatorInterface
      * @param $cityQuery
      * @throws ValidationException
      */
-    function validate(string $cityQuery) : void
+    function validate(string $cityQuery): void
     {
         $names = StringHelper::splitByComma($cityQuery);
-        foreach ($names as $name)
-        {
-            if(empty($name))
-            {
+        foreach ($names as $name) {
+            if (empty($name)) {
                 throw new ValidationException('All values in CityQuery should not be empty');
             }
         }

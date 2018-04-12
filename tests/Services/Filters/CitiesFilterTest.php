@@ -15,14 +15,15 @@ use PHPUnit\Framework\TestCase;
 
 class CitiesFilterTest extends TestCase
 {
-    private  $hotel;
-    public function setUp() : void
+    private $hotel;
+
+    public function setUp(): void
     {
         $this->hotel = new Hotel();
         $this->hotel->setCity('dubai');
     }
 
-    public function  testCityFilter() : void
+    public function testCityFilter(): void
     {
         $citiesFilter = new CitiesFilter();
         $this->assertTrue($citiesFilter->apply($this->hotel, 'dubai'), 'Whole Word'); //Whole Word

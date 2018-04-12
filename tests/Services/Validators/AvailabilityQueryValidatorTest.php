@@ -15,13 +15,13 @@ use PHPUnit\Framework\TestCase;
 
 class AvailabilityQueryValidatorTest extends TestCase
 {
-    public function testValidateEmptyStringThrowsException() : void
+    public function testValidateEmptyStringThrowsException(): void
     {
         $this->expectException(ValidationException::class);
         (new AvailabilityQueryValidator())->validate("");
     }
 
-    public function testValidateStringWithWrongFormatThrowsException() : void
+    public function testValidateStringWithWrongFormatThrowsException(): void
     {
         $this->expectException(ValidationException::class);
         (new AvailabilityQueryValidator())->validate("00-00-0000:00-00-0000,,00-00-0000:00-00-0000");

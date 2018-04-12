@@ -22,11 +22,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class SearchHelper
 {
-    protected $supportedFilterClasses = ['name' => NameFilter::class,
+    protected $supportedFilterClasses = [
+        'name' => NameFilter::class,
         'city' => CitiesFilter::class,
         'price_from' => PriceLowerLimitFilter::class,
-        'price_to'   => PriceUpperLimitFilter::class,
-        'avail' => AvailabilityFilter::class];
+        'price_to' => PriceUpperLimitFilter::class,
+        'avail' => AvailabilityFilter::class
+    ];
 
     private $filters = [];
 
@@ -60,8 +62,7 @@ class SearchHelper
     private function mapFiltersToClasses(): array
     {
         $filterClasses = [];
-        foreach ($this->filters as $filter => $value)
-        {
+        foreach ($this->filters as $filter => $value) {
             $filterClasses[$filter] = $this->supportedFilterClasses[$filter];
         }
         return $filterClasses;

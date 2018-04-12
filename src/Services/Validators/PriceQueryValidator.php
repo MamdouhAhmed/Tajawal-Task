@@ -22,10 +22,9 @@ class PriceQueryValidator implements ValidatorInterface
      * @param $price
      * @throws ValidationException
      */
-    function validate(string $price) : void
+    function validate(string $price): void
     {
-        if( preg_match("/^\d+(?:\.\d+)?$/",$price) == FALSE)
-        {
+        if (preg_match("/^\d+(?:\.\d+)?$/", $price) == false) {
             throw new ValidationException('Price query should be a number.');
         }
     }

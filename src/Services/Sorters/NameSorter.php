@@ -20,8 +20,8 @@ class NameSorter implements HotelSorterInterface
 
     public function sort(array $hotels): array
     {
-        usort($hotels, function (Hotel $first,Hotel $second){
-            return strcmp($first->getName() , $second->getName()) > 0;
+        usort($hotels, function (Hotel $first, Hotel $second) {
+            return strcmp($first->getName(), $second->getName()) > 0;
         });
         return $hotels;
     }

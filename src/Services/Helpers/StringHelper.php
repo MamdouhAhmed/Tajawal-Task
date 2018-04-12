@@ -25,7 +25,7 @@ class StringHelper
      */
     public static function contains(string $text, string $pattern): bool
     {
-        return stripos($text,$pattern) !== FALSE ;
+        return stripos($text, $pattern) !== false;
     }
 
     /**
@@ -34,16 +34,7 @@ class StringHelper
      */
     public static function splitByComma(string $text): array
     {
-        return explode(",",$text);
-    }
-
-    /**
-     * @param string $text
-     * @return array
-     */
-    public static function splitByColon(string $text): array
-    {
-        return explode(":",$text);
+        return explode(",", $text);
     }
 
     /**
@@ -52,21 +43,30 @@ class StringHelper
      */
     public static function joinWithCommas(array $elements): string
     {
-        return implode(",",$elements);
+        return implode(",", $elements);
     }
 
     /**
      * @param string $dateRange
      * @return array
      */
-    public static function convertDateRangeToArray(string $dateRange) : array
+    public static function convertDateRangeToArray(string $dateRange): array
     {
-        $dates = array_map(function($date){
+        $dates = array_map(function ($date) {
             return (new DateTime($date))->getTimestamp();
         }, StringHelper::splitByColon($dateRange));
 
         sort($dates);
         return $dates;
+    }
+
+    /**
+     * @param string $text
+     * @return array
+     */
+    public static function splitByColon(string $text): array
+    {
+        return explode(":", $text);
     }
 
 }

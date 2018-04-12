@@ -16,7 +16,8 @@ use PHPUnit\Framework\TestCase;
 class NameSorterTest extends TestCase
 {
     private $hotels;
-    public function setUp() : void
+
+    public function setUp(): void
     {
         $hotel1 = new Hotel();
         $hotel1->setName('a');
@@ -30,10 +31,10 @@ class NameSorterTest extends TestCase
         $hotel3->setName('c');
         $hotel3->setPrice(75);
 
-        $this->hotels =[$hotel2, $hotel1, $hotel3];
+        $this->hotels = [$hotel2, $hotel1, $hotel3];
     }
 
-    public function testNameSorter() : void
+    public function testNameSorter(): void
     {
         $nameSorter = new NameSorter();
         $this->hotels = $nameSorter->sort($this->hotels);

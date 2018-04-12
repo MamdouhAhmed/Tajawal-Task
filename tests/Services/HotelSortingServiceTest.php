@@ -12,14 +12,14 @@ namespace App\Tests\Services;
 use App\Entity\Hotel;
 use App\Entity\Hotels;
 use App\Services\HotelSortingService;
-use PHPUnit\Framework\TestCase;
 use Exception;
+use PHPUnit\Framework\TestCase;
 
 class HotelSortingServiceTest extends TestCase
 {
     private $hotels;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $hotel1 = new Hotel();
         $hotel1->setName('a');
@@ -37,7 +37,7 @@ class HotelSortingServiceTest extends TestCase
         $this->hotels->setHotels([$hotel2, $hotel1, $hotel3]);
     }
 
-    public function testSortHotelsByName() : void
+    public function testSortHotelsByName(): void
     {
         $hotelSortingService = new HotelSortingService();
         $hotelSortingService->sortHotels($this->hotels, 'name');
@@ -47,7 +47,7 @@ class HotelSortingServiceTest extends TestCase
 
     }
 
-    public function testSortHotelsByPriceAsParameter() : void
+    public function testSortHotelsByPriceAsParameter(): void
     {
         $hotelSortingService = new HotelSortingService();
         $hotelSortingService->sortHotels($this->hotels, 'price');
@@ -57,7 +57,7 @@ class HotelSortingServiceTest extends TestCase
 
     }
 
-    public function testSortHotelsByDefaultKeyShouldSortByPrice() : void
+    public function testSortHotelsByDefaultKeyShouldSortByPrice(): void
     {
         $hotelSortingService = new HotelSortingService();
         $hotelSortingService->sortHotels($this->hotels);
@@ -67,7 +67,7 @@ class HotelSortingServiceTest extends TestCase
 
     }
 
-    public function testSortHotelsByEmptyKeyShouldThrowException() : void
+    public function testSortHotelsByEmptyKeyShouldThrowException(): void
     {
         $this->expectException(Exception::class);
         $hotelSortingService = new HotelSortingService();
@@ -75,7 +75,7 @@ class HotelSortingServiceTest extends TestCase
 
     }
 
-    public function testSortHotelsByUnsupportedKeyShouldThrowException() : void
+    public function testSortHotelsByUnsupportedKeyShouldThrowException(): void
     {
         $this->expectException(Exception::class);
         $hotelSortingService = new HotelSortingService();

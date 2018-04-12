@@ -23,13 +23,11 @@ class NameQueryValidator implements ValidatorInterface
      * @param $nameQuery
      * @throws ValidationException
      */
-    function validate(string $nameQuery) : void
+    function validate(string $nameQuery): void
     {
         $names = StringHelper::splitByComma($nameQuery);
-        foreach ($names as $name)
-        {
-            if(empty($name))
-            {
+        foreach ($names as $name) {
+            if (empty($name)) {
                 throw new ValidationException('All values in NameQuery should not be empty');
             }
         }

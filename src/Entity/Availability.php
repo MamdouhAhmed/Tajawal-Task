@@ -20,7 +20,7 @@ class Availability
     /**
      * @return string
      */
-    public function getFrom() : string
+    public function getFrom(): string
     {
         return $this->from;
     }
@@ -36,7 +36,7 @@ class Availability
     /**
      * @return string
      */
-    public function getTo() : string
+    public function getTo(): string
     {
         return $this->to;
     }

@@ -18,7 +18,7 @@ class AvailabilityFilterTest extends TestCase
 {
     private $hotel;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $availability = new Availability();
         $availability->setFrom("01-10-2010");
@@ -26,7 +26,8 @@ class AvailabilityFilterTest extends TestCase
         $this->hotel = new Hotel();
         $this->hotel->setAvailability([$availability]);
     }
-    public function testAvailabilityFilterForOneDateRange() : void
+
+    public function testAvailabilityFilterForOneDateRange(): void
     {
         $availabilityFilter = new AvailabilityFilter();
 
@@ -42,13 +43,16 @@ class AvailabilityFilterTest extends TestCase
 
     }
 
-    public function testAvailabilityFilterForMultipleDateRanges() : void
+    public function testAvailabilityFilterForMultipleDateRanges(): void
     {
         $availabilityFilter = new AvailabilityFilter();
 
-        $this->assertTrue($availabilityFilter->apply($this->hotel, "01-10-2010:30-10-2010,01-10-2010:29-10-2010")); //Both Fit
-        $this->assertTrue($availabilityFilter->apply($this->hotel, "01-10-2010:30-10-2010,02-10-2010:31-10-2010")); //Only One fits
-        $this->assertFalse($availabilityFilter->apply($this->hotel, "30-09-2010:30-10-2010,30-09-2010:31-10-2010")); // None fit
+        $this->assertTrue($availabilityFilter->apply($this->hotel,
+            "01-10-2010:30-10-2010,01-10-2010:29-10-2010")); //Both Fit
+        $this->assertTrue($availabilityFilter->apply($this->hotel,
+            "01-10-2010:30-10-2010,02-10-2010:31-10-2010")); //Only One fits
+        $this->assertFalse($availabilityFilter->apply($this->hotel,
+            "30-09-2010:30-10-2010,30-09-2010:31-10-2010")); // None fit
 
     }
 

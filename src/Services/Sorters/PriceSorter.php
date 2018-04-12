@@ -20,7 +20,7 @@ class PriceSorter implements HotelSorterInterface
 
     public function sort(array $hotels): array
     {
-        usort($hotels, function (Hotel $first, Hotel $second){
+        usort($hotels, function (Hotel $first, Hotel $second) {
             return $first->getPrice() > $second->getPrice();
         });
         return $hotels;

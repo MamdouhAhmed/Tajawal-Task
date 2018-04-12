@@ -20,27 +20,30 @@ class SearchParametersValidator
     /**
      * @var array<string => App\Services\Validators\ValidatorInterface>
      */
-    protected static $supportedValidatorClasses = array ('avail' => AvailabilityQueryValidator::class
-                                                ,'name' => NameQueryValidator::class
-                                                ,'city' => CityQueryValidator::class
-                                                ,'price_from' => PriceQueryValidator::class
-                                                ,'price_to' => PriceQueryValidator::class);
+    protected static $supportedValidatorClasses = array(
+        'avail' => AvailabilityQueryValidator::class
+    ,
+        'name' => NameQueryValidator::class
+    ,
+        'city' => CityQueryValidator::class
+    ,
+        'price_from' => PriceQueryValidator::class
+    ,
+        'price_to' => PriceQueryValidator::class
+    );
 
     /**
      * @param array $searchParameters
      * @throws ValidationException
      */
-    public function validate(array $searchParameters) : void
+    public function validate(array $searchParameters): void
     {
-        foreach($searchParameters as $parameter => $value)
-        {
-            if(empty($value))
-            {
-                throw new ValidationException('Search query for '.$parameter.' should not be empty');
+        foreach ($searchParameters as $parameter => $value) {
+            if (empty($value)) {
+                throw new ValidationException('Search query for ' . $parameter . ' should not be empty');
             }
-            if(isset(self::$supportedValidatorClasses[$parameter]) !== false)
-            {
-                (new self::$supportedValidatorClasses[$parameter]) -> validate($value);
+            if (isset(self::$supportedValidatorClasses[$parameter]) !== false) {
+                (new self::$supportedValidatorClasses[$parameter])->validate($value);
             }
         }
     }
