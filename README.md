@@ -32,7 +32,7 @@ You must have [php](http://php.net/downloads.php) and [composer](https://getcomp
 
 4. Test the application:
 
-Use a web browser or any api testing tool (e.g. Postman) to test the api endpoint "/hotels".
+Use a web browser or any API testing tool (e.g. Postman) to test the API endpoint "/hotels".
 
 You can use the following parameters to filter the results:
 
