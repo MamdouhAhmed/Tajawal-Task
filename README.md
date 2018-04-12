@@ -52,9 +52,9 @@ It can be used to filter the result based on city using one or more keywords.
 
  examples : 
 
-		127.0.0.1:8000/hotels?name=cairo
+		127.0.0.1:8000/hotels?city=cairo
 
-		127.0.0.1:8000/hotels?name=cairo,dubai
+		127.0.0.1:8000/hotels?city=cairo,dubai
 
 - Price :
 
@@ -93,7 +93,7 @@ examples :
 
 		127.0.0.1:8000/hotels?sort_by=price
 
-##### **You can mix and match different search parameters to your liking**
+#### **You can mix and match different search parameters to your liking**
 
 ## Running Unit tests:
 
