@@ -5,7 +5,7 @@ A webapp to retrieve, filter, sort, and serve back hotel information.
 
 ### Packages used:
 
-1. Symfony skeleton, the minimum 
+1. Symfony skeleton, the minimum and most light-weight Symfony app that can be created
 2. SensioFrameworkExtraBundle, handles basic MVC webapp functionality. Routing, basic security.. etc
 3. Guzzle, to retrieve hotel information
 4. Gson-php, to easily deserialize JSON objects to PHP objects 
@@ -93,7 +93,7 @@ examples :
 
 		127.0.0.1:8000/hotels?sort_by=price
 
-#### **You can mix and match different search parameters to your liking**
+### **You can mix and match different search parameters to your liking**
 
 ## Running Unit tests:
 
