@@ -72,7 +72,7 @@ It can be used in two different ways. "price_from" to set a lower limit for the 
 
 It can be used to filter by the availability of hotels given a range of dates. 
 
-(Note that all the date ranges should be in the form of "dd-mm-yyyy:dd-mm-yyyy" and can be separated by a comma)
+(Note that all the date ranges should be in the form of "dd-mm-yyyy:dd-mm-yyyy" and in case of multiple ranges, they should be separated by a comma)
 
 examples : 
 
